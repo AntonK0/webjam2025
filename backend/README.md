@@ -39,7 +39,7 @@ uvicorn main:app --reload
 The API will be available at:
 - **API**: http://localhost:8000
 
-Cool docs to check out along with the API:
+To see the health and overview of our API status AND INTERACTIVE API TESTING:
 - **Interactive API docs (Swagger)**: http://localhost:8000/docs
 - **Alternative API docs (ReDoc)**: http://localhost:8000/redoc
 
