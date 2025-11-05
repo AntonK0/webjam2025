@@ -15,7 +15,7 @@ const ChipMultiSelect = () => {
     };
 
     return (
-        <div className="min-h-screen bg-white p-8">
+        <div className="bg-white p-8">
             <div className="flex gap-2 flex-wrap">
                 {options.map(option => (
                     <Chip
