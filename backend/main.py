@@ -1,6 +1,8 @@
 from fastapi import FastAPI # make sure to install fastapi
 from fastapi.middleware.cors import CORSMiddleware
 
+from pydantic import BaseModel, Field #TODO add to requirements.txt later if used
+
 app = FastAPI(
     title="WebJam 2025 API",
     description="Backend API for WebJam 2025 application",
@@ -15,6 +17,11 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+class UserInput(BaseModel):
+    """Model for user input data"""
+    text: str = Field(..., example="Hello, how are you?")
+    number: int = Field(..., example=42)
 
 
 @app.get("/")
