@@ -14,12 +14,17 @@ def create_prompt():
     pass
 
 def get_gemini_response(prompt: str) -> str:
-    response = client.models.generate_content(
-        model="gemini-2.5-flash", contents=prompt
-    )
-    return response.text
+    try:
+        response = client.models.generate_content(
+            model="gemini-2.5-flash", contents=prompt
+        )
+        return response.text
+    except Exception as e:
+        print(f"Gemini API failed: {e}")
+        raise
 
 def main():
+    # prompt will go here from main?
     print(get_gemini_response("Explain the theory of relativity in simple terms."))
 
 if __name__ == "__main__":

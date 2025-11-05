@@ -1,5 +1,6 @@
 from fastapi import FastAPI # make sure to install fastapi
 from fastapi.middleware.cors import CORSMiddleware
+from gemini_api import get_gemini_response
 
 app = FastAPI(
     title="WebJam 2025 API",
@@ -18,7 +19,7 @@ app.add_middleware(
 
 
 @app.get("/")
-async def root():
+async def root(): # where the fastAPI runs from (root)
     """Root endpoint - welcome message test"""
     return {
         "message": "Welcome to WebJam 2025 API",
