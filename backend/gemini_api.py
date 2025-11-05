@@ -53,5 +53,11 @@ def main():
     # prompt will go here from main?
     print(get_gemini_response("Explain the theory of relativity in simple terms."))
 
+def test_gemini_connection():
+    response = client.models.generate_content(
+            model="gemini-2.5-flash", contents="Explain the theory of relativity in simple terms."
+        )
+    return response.text
+
 if __name__ == "__main__":
     main()

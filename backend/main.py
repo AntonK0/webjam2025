@@ -4,6 +4,7 @@ from gemini_api import get_gemini_response
 
 from pydantic import BaseModel, Field #TODO add to requirements.txt later if used
 from typing import Optional
+from gemini_api import test_gemini_connection
 
 app = FastAPI(
     title="WebJam 2025 API",
@@ -73,4 +74,4 @@ async def generate_shampoo_response(
     shampoo_input: ShampooInput,
     image: UploadFile = File(...)
 ):
-    pass
+    return test_gemini_connection()
