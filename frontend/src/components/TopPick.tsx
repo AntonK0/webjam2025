@@ -26,7 +26,7 @@ const TopPick: React.FC<TopPickProps> = ({
           className="absolute top-3 right-3 sm:top-5 sm:right-5 lg:top-8 lg:right-8 w-4 h-4 sm:w-5 sm:h-5 lg:w-7 lg:h-7 cursor-pointer transition-opacity hover:opacity-70"
           aria-label="Expand"
         >
-          <RiExpandDiagonalFill className='w-4 h-4'/>
+          <RiExpandDiagonalFill className='w-4 h-4' color='black'/>
         </button>
       )}
 
