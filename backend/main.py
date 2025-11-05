@@ -1,6 +1,5 @@
 from fastapi import FastAPI, UploadFile, File # make sure to install fastapi
 from fastapi.middleware.cors import CORSMiddleware
-from gemini_api import get_gemini_response
 
 from pydantic import BaseModel, Field #TODO add to requirements.txt later if used
 from typing import Optional
