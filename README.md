@@ -1,6 +1,6 @@
 # webjam2025
 
-A full-stack web application with React frontend and backend API.
+A full-stack web application (mobile first) with React frontend and backend API.
 
 ## Project Structure
 
