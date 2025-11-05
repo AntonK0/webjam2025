@@ -6,7 +6,7 @@ load_dotenv()
 api_key= os.getenv("GEMINI_API_KEY")
 GEMINI_API_KEY = api_key
 
-
+# testing for blah blah 
 # The client gets the API key from the environment variable `GEMINI_API_KEY`.
 client = genai.Client(api_key=GEMINI_API_KEY)
 
