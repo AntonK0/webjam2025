@@ -1,8 +1,9 @@
-from fastapi import FastAPI # make sure to install fastapi
+from fastapi import FastAPI, UploadFile, File # make sure to install fastapi
 from fastapi.middleware.cors import CORSMiddleware
 from gemini_api import get_gemini_response
 
 from pydantic import BaseModel, Field #TODO add to requirements.txt later if used
+from typing import Optional
 
 app = FastAPI(
     title="WebJam 2025 API",
@@ -21,8 +22,35 @@ app.add_middleware(
 
 class UserInput(BaseModel):
     """Model for user input data"""
-    text: str = Field(..., example="Hello, how are you?")
-    number: int = Field(..., example=42)
+    pass
+
+class ShampooInput(UserInput):
+    """Model for hair input data extending UserInput"""
+    hair_type: str = Field(..., example="blonde")
+    hair_type_specifics: Optional[list[str]] = Field(None, description="Specifics about hair type. [Straight, Curly, Wavy, Coily]")
+    hair_oiliness: Optional[list[str]] = Field(None, description="The oiliness level of the hair. [Dry, Normal, Oily]")
+    hair_condition: Optional[list[str]] = Field(None, description="The hair condition. [Frizz, Itchy, Dandruff, Split-ends, Hair Loss]")
+    allergies: Optional[str] = Field(None, description="Any known allergies that may be used in shampoo products.")
+    additional_info: Optional[str] = Field(None, description="Any additional information the user wants to provide.")
+
+class ConditionerInput(UserInput):
+    """Model for skin condition input data extending UserInput"""
+    skin_type: str = Field(..., example="oily")
+
+class ToothpasteInput(UserInput):
+    """Model for oral care input data extending UserInput"""
+    dental_issues: str = Field(..., example="sensitive teeth")  
+
+class SkinCareInput(UserInput):
+    """Model for skin care input data extending UserInput"""
+    skin_concerns: str = Field(..., example="dryness")
+
+#response models can be added later as needed TODO change later
+class ProductRecommendationResponse(BaseModel):
+    """Model for product recommendation response"""
+    product_name: str = Field(..., example="Hydrating Shampoo")
+    product_description: str = Field(..., example="A shampoo that hydrates dry hair.")
+    recommended_usage: str = Field(..., example="Use daily for best results.")
 
 
 @app.get("/")
@@ -40,3 +68,9 @@ async def health_check():
     """Health check endpoint to check if the server is running and working properly -dz"""
     return {"status": "healthy"}
 
+@app.post("/generate-shampoo-response")
+async def generate_shampoo_response(
+    shampoo_input: ShampooInput,
+    image: UploadFile = File(...)
+):
+    pass
