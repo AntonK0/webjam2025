@@ -1,10 +1,11 @@
+import React from 'react';
 import { RiArrowRightLine } from "@remixicon/react";
 
 interface NextProps {
   onClick: () => void;
 }
 
-const Next = ({ onClick }: NextProps) => {
+const Next: React.FC<NextProps> = ({ onClick }) => {
   return (
     <button onClick={onClick} className="btn btn-outline border-2">
       <div className="w-28 flex justify-between">
