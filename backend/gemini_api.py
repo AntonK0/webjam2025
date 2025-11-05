@@ -1,4 +1,5 @@
 from google import genai
+from google import genai_types
 import os
 from dotenv import load_dotenv
 import json
@@ -7,18 +8,36 @@ load_dotenv()
 api_key= os.getenv("GEMINI_API_KEY")
 GEMINI_API_KEY = api_key
 
-# testing for blah blah 
 # The client gets the API key from the environment variable `GEMINI_API_KEY`.
 client = genai.Client(api_key=GEMINI_API_KEY)
 
 # assembles the json prompt to SEND to Gemini for context
-def create_json_prompt():
+def _create_json_prompt(user_profile: dict):
     with open("gemini_prompt.json", "r") as f:
         template = json.load(f)
     
-    context_instruction = template["prompt_structure"]
+    prompt_structure = template["prompt_structure"]
+    ai_instruction = prompt_structure["system_instruction"]
+    system_text = f"{ai_instruction['role']} {' '.join(ai_instruction['instructions'])}"
 
-    return context_instruction
+    user_prompt = prompt_structure["user_prompt_template"]
+    task_instructions = user_prompt["task_instructions"]
+
+    profile_string = json.dumps(user_profile, indent=2)
+
+    text_prompt = (
+        f"{user_prompt['introduction']}\n\n" # ai context
+        f"--- My Profile ---\n{profile_string}\n\n" # from FastAPI??
+        f"--- Instructions ---\n"
+        f"{task_instructions['call_to_action']}\n" 
+        f"{task_instructions['output_format_instructions']}" # prompt structure -> JSON
+    )
+    output_schema = task_instructions["output_schema"]
+    generation_config = genai_types.GenerationConfig(
+        response_mime_type="application/json",
+        response_schema=output_schema
+    )
+    return system_text, text_prompt, generation_config
 
 def get_gemini_response(prompt: str) -> str:
     try:
