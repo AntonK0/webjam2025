@@ -1,18 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Chip from './Chip';
 
 const ChipMultiSelect = () => {
+    const [selected, setSelected] = useState<string[]>([]);
+    
+    const options = ['Fine', 'Medium', 'Coarse'];
+    
+    const toggleOption = (option: string) => {
+        setSelected(prev => 
+            prev.includes(option) 
+                ? prev.filter(item => item !== option)
+                : [...prev, option]
+        );
+    };
+
     return (
-        <div className="min-h-screen bg-base-200 p-8">
-            <div className="mb-8">
-                <h1 className="text-4xl font-bold mb-4">Filter using HTML form, checkboxes, and a reset button</h1>
-                <p className="mb-4">For having multiple choices, use checkboxes. It doesn't need the filter class name.</p>
-                
-                <form className="join">
-                    <input className="join-item btn" type="checkbox" name="frameworks" aria-label="Svelte"/>
-                    <input className="join-item btn" type="checkbox" name="frameworks" aria-label="Vue"/>
-                    <input className="join-item btn" type="checkbox" name="frameworks" aria-label="React"/>
-                    <input className="join-item btn btn-square" type="reset" value="×"/>
-                </form>
+        <div className="min-h-screen bg-white p-8">
+            <div className="flex gap-2 flex-wrap">
+                {options.map(option => (
+                    <Chip
+                        key={option}
+                        label={option}
+                        selected={selected.includes(option)}
+                        onClick={() => toggleOption(option)}
+                    />
+                ))}
             </div>
         </div>
     )
