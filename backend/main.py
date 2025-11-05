@@ -1,5 +1,6 @@
 from fastapi import FastAPI # make sure to install fastapi
 from fastapi.middleware.cors import CORSMiddleware
+from gemini_api import get_gemini_response
 
 from pydantic import BaseModel, Field #TODO add to requirements.txt later if used
 
@@ -25,7 +26,7 @@ class UserInput(BaseModel):
 
 
 @app.get("/")
-async def root():
+async def root(): # where the fastAPI runs from (root)
     """Root endpoint - welcome message test"""
     return {
         "message": "Welcome to WebJam 2025 API",
