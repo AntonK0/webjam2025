@@ -1,4 +1,5 @@
 import React from 'react';
+import { RiImageAddLine } from '@remixicon/react';
 
 interface UploadBoxProps {
   onUpload?: (files: FileList) => void;
@@ -53,22 +54,7 @@ const UploadBox: React.FC<UploadBoxProps> = ({
                    hover:bg-gray-50 transition-colors duration-200 flex flex-col items-center justify-center"
       >
         {/* Upload Icon */}
-        <div className="w-[43px] h-[43px] mb-4 flex items-center justify-center">
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="#808080" 
-            strokeWidth="2" 
-            strokeLinecap="round" 
-            strokeLinejoin="round"
-            className="w-full h-full"
-          >
-            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-            <circle cx="8.5" cy="8.5" r="1.5"></circle>
-            <polyline points="21 15 16 10 5 21"></polyline>
-          </svg>
-        </div>
+        <RiImageAddLine size="43px" className='opacity-50'/>
 
         {/* Upload Text */}
         <p className="text-sm text-gray-400 text-center">
