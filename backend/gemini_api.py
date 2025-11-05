@@ -1,6 +1,7 @@
 from google import genai
 import os
 from dotenv import load_dotenv
+import json
 
 load_dotenv()
 api_key= os.getenv("GEMINI_API_KEY")
@@ -10,8 +11,14 @@ GEMINI_API_KEY = api_key
 # The client gets the API key from the environment variable `GEMINI_API_KEY`.
 client = genai.Client(api_key=GEMINI_API_KEY)
 
-def create_prompt():
-    pass
+# assembles the json prompt to SEND to Gemini for context
+def create_json_prompt():
+    with open("gemini_prompt.json", "r") as f:
+        template = json.load(f)
+    
+    context_instruction = template["prompt_structure"]
+
+    return context_instruction
 
 def get_gemini_response(prompt: str) -> str:
     try:
