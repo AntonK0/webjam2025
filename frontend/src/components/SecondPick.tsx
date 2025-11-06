@@ -19,7 +19,8 @@ const ProductCardMobile: React.FC<ProductCardMobileProps> = ({
       data-name="Product Card Mobile"
     >
       {/* Expand button - top right corner */}
-      {onExpand && (
+      
+      {onExpand && ( 
         <button
           onClick={onExpand}
           className="absolute top-3 right-3 w-4 h-4 cursor-pointer transition-opacity hover:opacity-70 z-10"
