@@ -93,6 +93,7 @@ def generate_shampoo_response(
     # parsed data to user_profile dict
     user_profile = {
         "hair": {
+            "product_type": "shampoo",
             "type": hair_type,
             "oiliness": hair_oiliness,
             "density": hair_density,

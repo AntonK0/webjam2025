@@ -19,6 +19,7 @@
       "introduction": "Hello SnapRec. Please analyze the attached image of products based on my personal care profile below and recommend the single best product for me.",
       "user_profile_schema": {
         "hair": {
+          "product_type": "{USER_PRODUCT_TYPE}",
           "type": "{USER_HAIR_TYPE}",
           "oiliness": "{USER_HAIR_OILINESS}",
           "density": "{USER_HAIR_DENSITY}",
