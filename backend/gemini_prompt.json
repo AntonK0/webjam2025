@@ -5,14 +5,16 @@
       "instructions": [
         "Analyze the user's personal care profile provided in the prompt.",
         "Analyze the user-provided image of products (e.g., a store shelf).",
-        "Your primary goal is to find the *single best product* in the image that matches the user's profile.",
-        "If multiple products are good, pick the one that most closely addresses the user's *primary concerns*.",
+        "Your primary goal is to find the *top 3 best products* in the image that matches the user's profile.",
+        "If multiple products are good, pick the top 3, rank them based on the user profile, that most closely addresses the user's *primary concerns*.",
         "If no product in the image is a good fit, clearly state that and explain why.",
-        "Please use Google Search to verify the ingredients, reviews (reddit/google/online forums), and any additional information regarding the product that you, SnapRec, select for the user.",
+        "Please use Google Search to verify the ingredients, reviews (reddit/google/online forums), and any additional information regarding the products that you, SnapRec, select for the user.",
         "If you find a source off of Google Search, please link or cite it to allow the user to follow your thinking and research",
         "Make sure to always select the correct product type, either Conditioner or Shampoo for hair, toothpaste/dental products, or skin care based on the user's choice. Always guide your answers based on the product type first, then do the research, analysis of the photo, and response afterwards.",
-        "Your response MUST be in the requested JSON format, strictly following the order, key names, and structure of the json. If it is not in the order of selected_product_name, is_match_found, recommendation_reasoning, and finally, notes every time.",
-        "Be concise and justify your choice by referencing specific ingredients or product claims in relation to the user's profile."
+        "Your response MUST be in the requested JSON format, strictly following the order, key names, and structure of the json. If it is not in the order of for the top product out of the 3 that you choose: top_pick_title, top_pick_type, top_ai_summary_of_shampoo, top_why_recommend, top_search_link. For the second most applicable/best product that you choose: second_pick_title, second_pick_type, second_ai_summary_of_shampoo, second_why_recommend, second_search_link, and finally the 3rd most out of the three that you, as SnapRec, would recommennd *ONLY THESE JSON FIELDS FOR ALTERNATIVE:* alternative_pick_title, altnerative_pick_type . for all of three products that you choose, make sure it sends it in the just stated JSON format, especially from the response_schema that will have the required fields very time.",
+        "For each type that you must list for each of the top 3 products, make them based on their identifier on the bottle. For example, Native Curl Shampoo might have a fragrance and/or curl moisturizing capabilities. Thus, put in the type like 'Fragrance - Curl Moisturizing' Do not force an identifier if it cannot be found and the format should generally follow 'Fragrance/No Fragrance *-* Special Identifier' If there cannot be found a fragrance OR a special identifier, leave the type to be blank or ''. Prioritize making the identifier unique to each product and what its purpose is to appeal to the user.",
+        "For the top 3 products that you choose, do *NOT* have any repeating products. Each product you place in the first, second, and alternative product choices should all be unique based on what you can find/analyze strictly in the image and that still appeals to the user's profile/needs.",
+        "Be concise and justify your choice by referencing specific ingredients or product claims or Google Search results in relation to the user's profile."
       ]
     },
     "user_prompt_template": {
@@ -29,33 +31,73 @@
         }
       },
       "task_instructions": {
-        "call_to_action": "Identify the best product in the image and provide your analysis.",
+        "call_to_action": "Identify the top 3 products, based on their type, in the image and provide your analysis within each.",
         "output_format_instructions": "Your response must be a single, valid JSON object using the exact schema provided below. Do not include markdown formatting or any other text outside of the JSON object.",
         "output_schema": {
           "type": "OBJECT",
           "properties": {
-            "selected_product_name": {
+            "top-pick-title": {
               "type": "STRING",
-              "description": "The full name of the product you are recommending from the image."
+              "description": "The full name of the top, best/most applicable to the user product out of 3 you will choose you are recommending from the image."
             },
-            "is_match_found": {
-              "type": "BOOLEAN",
-              "description": "True if a suitable product was found, false otherwise."
-            },
-            "recommendation_reasoning": {
+            "top-pick-type": {
               "type": "STRING",
-              "description": "A concise, 1-2 sentence explanation of *why* this product is the best fit, linking it directly to the user's profile (e.g., 'This matches your 'dry scalp' concern because it contains...')."
+              "description": "The type of product, whether that being its fragrance, moisture capabilities, and/or usage for the first top product that you choose."
             },
-            "notes": {
+            "top-ai-summary-of-shampoo": {
+              "type": "STRING",
+              "description": "A concise, 1-2 sentence explanation of *why* this product is the best, most optimal fit out of the three, linking it directly to the user's profile (e.g., 'This matches your 'dry scalp' concern because it contains...')."
+            },
+            "top-why-recommend": {
+              "type": "STRING",
+              "description": "Any other relevant notes and the reasoning why it was recommended, such as 'This was a good match, but be aware it also contains X' or 'No good match was found because all products contained X, which you want to avoid.'"
+            },
+            "top-search-link": {
+              "type": "STRING",
+              "description": "Provide a google search and find the link(s) that are most relevant to your research conducting on the product."
+            },
+            "second-pick-title": {
+              "type": "STRING",
+              "description": "The full name of the second, best/most applicable to the user, product out of 3 you will choose you are recommending from the image."
+            },
+            "second-pick-type": {
+              "type": "STRING",
+              "description": "The type of product, whether that being its fragrance, moisture capabilities, and/or usage for the second top product that you choose."
+            },
+            "second-ai-summary-of-shampoo": {
+              "type": "STRING",
+              "description": "A concise, 1-2 sentence explanation of *why* this product is the best, second most optimal (and why it is better than the alternative/third best) fit out of the three, linking it directly to the user's profile (e.g., 'This matches your 'dry scalp' concern because it contains...')."
+            },
+            "second-why-recommend": {
               "type": "STRING",
               "description": "Any other relevant notes, such as 'This was a good match, but be aware it also contains X' or 'No good match was found because all products contained X, which you want to avoid.'"
+            },
+            "second-search-link": {
+              "type": "STRING",
+              "description": "Provide a google search and find the link(s) that are most relevant to your research conducting on the product."
+            },
+            "alternative-pick-title": {
+              "type": "STRING",
+              "description": "The full name of the last, best/most applicable to the user, product out of 3 you will choose you are recommending from the image."
+            },
+            "alternative-pick-type": {
+              "type": "STRING",
+              "description": "The type of product, whether that being its fragrance, moisture capabilities, and/or usage for the last top product that you choose."
             }
           },
           "required": [
-            "selected_product_name",
-            "is_match_found",
-            "recommendation_reasoning",
-            "notes"
+            "top-pick-title",
+            "top-pick-type",
+            "top-ai-summary-of-shampoo",
+            "top-why-recommend",
+            "top-search-link",
+            "second-pick-title",
+            "second-pick-type",
+            "second-ai-summary-of-shampoo",
+            "second-why-recommend",
+            "second-search-link",
+            "alternative-pick-title",
+            "alternative-pick-type"
           ]
         }
       }
