@@ -7,11 +7,14 @@ import {
   RiHandSanitizerLine,
   RiReservedLine,
 } from "@remixicon/react";
+import Chip from "./Chip";
 
 const AssessmentPage = () => {
   const [page, setPage] = useState(0);
   const [productType, setProductType] = useState("");
   const [hairType, setHairType] = useState("");
+  const [hairDensity, setHairDensity] = useState("Fine");
+  const [oiliness, setOiliness] = useState("Dry");
 
   if (page == 0) {
     return (
@@ -99,8 +102,67 @@ const AssessmentPage = () => {
       </>
     );
   } else {
-    return <>
-      </>;
+    return (
+      <>
+        <div>
+          <h1 className="text-3xl text-center font-semibold mt-40">
+            Does your hair have any of the following traits?
+          </h1>
+          <div className="mt-12 ml-5">
+            <h2 className="text-xl font-medium mb-2">Hair Density</h2>
+            <div className="flex gap-5">
+              <Chip
+                label="Fine"
+                selected={hairDensity == "Fine"}
+                onClick={() => {
+                  setHairDensity("Fine");
+                }}
+              />
+              <Chip
+                label="Medium"
+                selected={hairDensity == "Medium"}
+                onClick={() => {
+                  setHairDensity("Medium");
+                }}
+              />
+              <Chip
+                label="Coarse"
+                selected={hairDensity == "Coarse"}
+                onClick={() => {
+                  setHairDensity("Coarse");
+                }}
+              />
+            </div>
+          </div>
+          <div className="mt-9 ml-5">
+            <h2 className="text-xl font-medium mb-2">Oiliness</h2>
+            <div className="flex gap-5">
+              <Chip
+                label="Dry"
+                selected={oiliness == "Dry"}
+                onClick={() => {
+                  setOiliness("Dry");
+                }}
+              />
+              <Chip
+                label="Normal"
+                selected={oiliness == "Normal"}
+                onClick={() => {
+                  setOiliness("Normal");
+                }}
+              />
+              <Chip
+                label="Oily"
+                selected={oiliness == "Oily"}
+                onClick={() => {
+                  setOiliness("Oily");
+                }}
+              />
+            </div>
+          </div>
+        </div>
+      </>
+    );
   }
 };
 
