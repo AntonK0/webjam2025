@@ -3,6 +3,7 @@ import os
 from dotenv import load_dotenv
 import json
 
+# TEST TEST TEST
 load_dotenv()
 api_key= os.getenv("GEMINI_API_KEY")
 GEMINI_API_KEY = api_key
