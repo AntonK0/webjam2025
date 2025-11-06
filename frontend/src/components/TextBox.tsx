@@ -11,7 +11,7 @@ const TextBox = ({ placeholder_text, text, setText }: TextBoxProps) => {
       onChange={(e) => {
         setText(e.target.value);
       }}
-      className="textarea textarea-ghost border-solid border-black border-2"
+      className="textarea textarea-ghost border-solid border-black border-2 w-80"
       placeholder={placeholder_text}
     ></textarea>
   );

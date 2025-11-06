@@ -2,6 +2,8 @@ import { useState } from "react";
 import ItemType from "../components/ItemType";
 import Chip from "../components/Chip";
 import Next from "../components/Next";
+import TextBox from "../components/TextBox";
+import { useNavigate } from "react-router";
 import {
   RiDropLine,
   RiDropFill,
@@ -10,6 +12,7 @@ import {
   RiReservedLine,
 } from "@remixicon/react";
 
+
 const AssessmentPage = () => {
   const [page, setPage] = useState(0);
   const [productType, setProductType] = useState("");
@@ -17,6 +20,10 @@ const AssessmentPage = () => {
   const [hairDensity, setHairDensity] = useState("Fine");
   const [oiliness, setOiliness] = useState("Dry");
   const [conditions, setConditions] = useState<string[]>([]);
+  const [allergies, setAllegies] = useState("");
+  const [misc, setMisc] = useState("");
+
+  let navigate = useNavigate();
 
   const conditionList = [
     "Frizz",
@@ -120,14 +127,14 @@ const AssessmentPage = () => {
         </div>
       </>
     );
-  } else {
+  } else if (page == 2) {
     return (
       <>
         <div>
           <h1 className="text-3xl text-center font-semibold mt-40">
             Does your hair have any of the following traits?
           </h1>
-          <div className="mt-12 ml-5">
+          <div className="mt-9 ml-5">
             <h2 className="text-xl font-medium mb-2">Hair Density</h2>
             <div className="flex gap-5">
               <Chip
@@ -192,13 +199,46 @@ const AssessmentPage = () => {
               ))}
             </div>
           </div>
-          {/* <div className="divider" />
-          <Next
-            onClick={() => {
-              setPage(3);
-            }}
-          /> */}
+          <div className="divider mr-3 ml-3 " />
+          <div className="flex justify-end mr-3">
+            <Next
+              onClick={() => {
+                setPage(3);
+              }}
+            />
+          </div>
         </div>
+      </>
+    );
+  } else {
+    return (
+      <>
+      <div className="flex flex-wrap justify-center">
+        <div className="mt-36">
+          <h1 className="font-semibold mb-4 text-3xl">Any Allergies?</h1>
+          <TextBox
+            placeholder_text="Ex. Fragrances, Dyes, etc... Leave blank if none."
+            text={allergies}
+            setText={setAllegies}
+          />
+        </div>
+        <div className="mt-14">
+          <h1 className="font-semibold mb-4 text-3xl">Anything else to add?</h1>
+          <TextBox
+            placeholder_text="Your response here will give context to our AI. Leave blank if none."
+            text={misc}
+            setText={setMisc}
+          />
+        </div>
+        </div>
+        <div className="divider mr-3 ml-3 " />
+          <div className="flex justify-end mr-3">
+            <Next
+              onClick={() => {
+                navigate({pathname: "/uploadImage"});
+              }}
+            />
+          </div>
       </>
     );
   }
