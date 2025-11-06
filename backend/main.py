@@ -84,3 +84,6 @@ def generate_shampoo_response(
     
     # You can now use shampoo_input object for further processing
     return test_gemini_connection()
+
+    #test commits
+    
