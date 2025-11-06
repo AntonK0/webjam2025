@@ -1,5 +1,7 @@
 import { useState } from "react";
 import ItemType from "../components/ItemType";
+import Chip from "../components/Chip";
+import Next from "../components/Next";
 import {
   RiDropLine,
   RiDropFill,
@@ -7,7 +9,6 @@ import {
   RiHandSanitizerLine,
   RiReservedLine,
 } from "@remixicon/react";
-import Chip from "../components/Chip";
 
 const AssessmentPage = () => {
   const [page, setPage] = useState(0);
@@ -15,6 +16,24 @@ const AssessmentPage = () => {
   const [hairType, setHairType] = useState("");
   const [hairDensity, setHairDensity] = useState("Fine");
   const [oiliness, setOiliness] = useState("Dry");
+  const [conditions, setConditions] = useState<string[]>([]);
+
+  const conditionList = [
+    "Frizz",
+    "Itchy",
+    "Dandruff",
+    "Split-ends",
+    "Hair Loss",
+    "Dyed",
+  ];
+
+  const toggleOption = (option: string) => {
+    setConditions((prev) =>
+      prev.includes(option)
+        ? prev.filter((item) => item !== option)
+        : [...prev, option]
+    );
+  };
 
   if (page == 0) {
     return (
@@ -160,6 +179,25 @@ const AssessmentPage = () => {
               />
             </div>
           </div>
+          <div className="mt-9 ml-5">
+            <h2 className="text-xl font-medium mb-2">Conditions</h2>
+            <div className="flex flex-wrap gap-x-5 gap-y-3">
+              {conditionList.map((c) => (
+                <Chip
+                  key={c}
+                  label={c}
+                  selected={conditions.includes(c)}
+                  onClick={() => toggleOption(c)}
+                />
+              ))}
+            </div>
+          </div>
+          {/* <div className="divider" />
+          <Next
+            onClick={() => {
+              setPage(3);
+            }}
+          /> */}
         </div>
       </>
     );
