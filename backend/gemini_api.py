@@ -13,7 +13,7 @@ client = genai.Client(api_key=GEMINI_API_KEY)
 
 # assembles the json prompt to SEND to Gemini for context
 def _create_json_prompt(user_profile: dict):
-    with open("backend/gemini_prompt.json", "r") as f:
+    with open("./gemini_prompt.json", "r") as f:
         template = json.load(f)
     
     prompt_structure = template["prompt_structure"]
@@ -35,8 +35,9 @@ def _create_json_prompt(user_profile: dict):
     )
     output_schema = task_instructions["output_schema"]
     generation_config = {
-        "response_mime_type": "application/json",
-        "response_schema": output_schema
+        "response_mime_type": "text/plain",
+        "response_schema": output_schema,
+        "tools": [{"google_search": {}}]
     }
     return text_prompt, generation_config
 
@@ -56,6 +57,7 @@ def main():
         "hair": {
             "type": "Curly",
             "oiliness": "Dry",
+            "density": "Coarse",
             "conditions": "Frizz",
             "allergens": "Red-40",
             "other_notes": "" # "Recently colored, prone to breakage"

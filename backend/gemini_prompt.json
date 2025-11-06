@@ -8,7 +8,7 @@
         "Your primary goal is to find the *single best product* in the image that matches the user's profile.",
         "If multiple products are good, pick the one that most closely addresses the user's *primary concerns*.",
         "If no product in the image is a good fit, clearly state that and explain why.",
-        "Your response MUST be in the requested JSON format.",
+        "Your response MUST be in the requested JSON format, strictly following the order, key names, and structure of the json. If it is not in the order of selected_product_name, is_match_found, recommendation_reasoning, and finally, notes every time.",
         "Be concise and justify your choice by referencing specific ingredients or product claims in relation to the user's profile."
       ]
     },
@@ -18,6 +18,7 @@
         "hair": {
           "type": "{USER_HAIR_TYPE}",
           "oiliness": "{USER_HAIR_OILINESS}",
+          "density": "{USER_HAIR_DENSITY}",
           "conditions": "{USER_HAIR_CONDITIONS}",
           "allergens": "{USER_ALLERGENS}",
           "other_notes": "{USER_HAIR_OTHER_NOTES}"
