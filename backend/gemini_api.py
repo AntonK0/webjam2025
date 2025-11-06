@@ -41,9 +41,10 @@ def _create_json_prompt(user_profile: dict):
     }
     return text_prompt, generation_config
 
-def get_gemini_response(user_profile: dict) -> str:
+def get_gemini_response(user_profile: dict, image_file) -> str:
     try:
         text_prompt, generation_config = _create_json_prompt(user_profile)
+        image = client.files.upload_file(file=image_file)
         response = client.models.generate_content(
             model="gemini-2.5-flash", contents=[text_prompt, image], config=generation_config)
         return response.text

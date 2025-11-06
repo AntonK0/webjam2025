@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from pydantic import BaseModel, Field, ValidationError #TODO add to requirements.txt later if used
 from typing import Optional, List
-from gemini_api import test_gemini_connection
+from gemini_api import get_gemini_response
 
 import json #TODO add to requirements.txt later if used
 
@@ -106,4 +106,4 @@ def generate_shampoo_response(
     image_file = image.file
 
     # TODO: return the gemini response here
-    return user_profile
+    return get_gemini_response(user_profile, image_file)
