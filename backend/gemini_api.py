@@ -45,7 +45,7 @@ def get_gemini_response(user_profile: dict) -> str:
     try:
         text_prompt, generation_config = _create_json_prompt(user_profile)
         response = client.models.generate_content(
-            model="gemini-2.5-flash", contents=text_prompt, config=generation_config)
+            model="gemini-2.5-flash", contents=[text_prompt, image], config=generation_config)
         return response.text
     except Exception as e:
         print(f"Gemini API failed: {e}")
