@@ -1,16 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import UploadBox from './UploadBox';
+
+interface UploadBoxExampleProps {
+  onFilesChange?: (files: File[]) => void;
+}
 
 /**
  * Example usage of the UploadBox component
  */
-const UploadBoxExample: React.FC = () => {
-  const handleUpload = (files: FileList) => {
-    console.log('Files uploaded:', files);
+const UploadBoxExample: React.FC<UploadBoxExampleProps> = ({ onFilesChange }) => {
+  const [files, setFiles] = useState<File[]>([]);
+
+  const handleUpload = (fileList: FileList) => {
+    console.log('Files uploaded:', fileList);
     // Process uploaded files
-    Array.from(files).forEach(file => {
+    const fileArray = Array.from(fileList);
+    fileArray.forEach(file => {
       console.log(`- ${file.name} (${file.type})`);
     });
+    
+    // Update local state
+    setFiles(fileArray);
+    
+    // Call parent callback if provided
+    if (onFilesChange) {
+      onFilesChange(fileArray);
+    }
   };
 
   return (

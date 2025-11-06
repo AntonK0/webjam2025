@@ -54,7 +54,7 @@ const UploadBox: React.FC<UploadBoxProps> = ({
                    hover:bg-gray-50 transition-colors duration-200 flex flex-col items-center justify-center"
       >
         {/* Upload Icon */}
-        <RiImageAddLine size="43px" className='opacity-50'/>
+        <RiImageAddLine size="43px" className='opacity-50 text-black'/>
 
         {/* Upload Text */}
         <p className="text-sm text-gray-400 text-center">
