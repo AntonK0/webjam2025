@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import UploadBoxExample from "../components/UploadBoxExample.tsx";
 import LogoutHeader from "../components/LogoutHeader.tsx";
-// import MainInstruction from "./components/MainInstruction.tsx";
-// import SubInstruction from "./components/SubInstruction.tsx";
-import Next from "../components/Next.tsx";
+// Only one image upload page accepted
 
 function UploadImage() {
   const [uploadedFiles, setUploadedFiles] = useState([]);
@@ -14,12 +12,15 @@ function UploadImage() {
   };
 
   return (
-    <>
+    <div className='background bg-white h-screen'>
       <LogoutHeader />
-      <h1 className="text-2xl font-bold text-black mx-9">Let's see what we're working with.</h1>
+      <div className='bg-white pt-6' >
+        <h1 className="text-2xl font-bold text-black mx-12">Let's see what we're working with.</h1>
+      </div>
+      <h2 className="text-md text-gray-600 mx-12 mt-4">Take a picture of the product aisle.
+        Make sure to get everything in frame.</h2>
       <UploadBoxExample onFilesChange={setUploadedFiles} />
-      <Next onClick={handleNext} />
-    </>
+    </div>
   );
 }
 
