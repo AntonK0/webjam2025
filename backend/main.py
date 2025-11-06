@@ -29,8 +29,8 @@ class UserInput(BaseModel):
 class ShampooInput(UserInput):
     """Model for hair input data extending UserInput"""
     hair_type: str = Field(..., example="blonde")
-    hair_type_specifics: Optional[List[str]] = Field(None, description="Specifics about hair type. [Straight, Curly, Wavy, Coily]")
-    hair_oiliness: Optional[List[str]] = Field(None, description="The oiliness level of the hair. [Dry, Normal, Oily]")
+    hair_type_specifics: Optional[str] = Field(None, description="Specifics about hair type. [Straight, Curly, Wavy, Coily]")
+    hair_oiliness: Optional[str] = Field(None, description="The oiliness level of the hair. [Dry, Normal, Oily]")
     hair_condition: Optional[List[str]] = Field(None, description="The hair condition. [Frizz, Itchy, Dandruff, Split-ends, Hair Loss]")
     allergies: Optional[str] = Field(None, description="Any known allergies that may be used in shampoo products.")
     additional_info: Optional[str] = Field(None, description="Any additional information the user wants to provide.")

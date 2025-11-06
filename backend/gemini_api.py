@@ -57,7 +57,7 @@ def main():
             "oiliness": "Dry",
             "conditions": "Frizz",
             "allergens": "Red-40",
-            "other_notes": ""
+            "other_notes": "" # "Recently colored, prone to breakage"
         }
     }
     print(get_gemini_response(userProfile))
