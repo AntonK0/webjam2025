@@ -71,7 +71,7 @@ async def health_check():
     return {"status": "healthy"}
 
 @app.post("/generate-shampoo-response")
-async def generate_shampoo_response(
+def generate_shampoo_response(
     shampoo_input_json: str = Form(...),
     image: UploadFile = File(...)
 ):
