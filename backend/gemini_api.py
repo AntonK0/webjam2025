@@ -2,6 +2,8 @@ from google import genai
 import os
 from dotenv import load_dotenv
 import json
+from PIL import Image
+from io import BytesIO
 
 # TESTING AGAIN
 load_dotenv()
@@ -45,32 +47,34 @@ def get_gemini_response(user_profile: dict, image_file) -> str:
     try:
         text_prompt, generation_config = _create_json_prompt(user_profile)
         image_bytes = image_file.read()
+
+        image = Image.open(BytesIO(image_bytes))
         response = client.models.generate_content(
-            model="gemini-2.5-flash", contents=[text_prompt, {"mime_type": "image/jpeg", "data": image_bytes}], config=generation_config)
+            model="gemini-2.5-flash", contents=[text_prompt, image], config=generation_config)
         return response.text
     except Exception as e:
         print(f"Gemini API failed: {e}")
         raise
 
-def main():
-    # prompt will go here from main?
-    userProfile = {
-        "hair": {
-            "type": "Curly",
-            "oiliness": "Dry",
-            "density": "Coarse",
-            "conditions": "Frizz",
-            "allergens": "Red-40",
-            "other_notes": "" # "Recently colored, prone to breakage"
-        }
-    }
-    print(get_gemini_response(userProfile))
+# def main():
+#     # prompt will go here from main?
+#     userProfile = {
+#         "hair": {
+#             "type": "Curly",
+#             "oiliness": "Dry",
+#             "density": "Coarse",
+#             "conditions": "Frizz",
+#             "allergens": "Red-40",
+#             "other_notes": "" # "Recently colored, prone to breakage"
+#         }
+#     }
+#     print(get_gemini_response(userProfile))
 
-def test_gemini_connection():
-    response = client.models.generate_content(
-            model="gemini-2.5-flash", contents="Explain the theory of relativity in simple terms."
-        )
-    return response.text
+# def test_gemini_connection():
+#     response = client.models.generate_content(
+#             model="gemini-2.5-flash", contents="Explain the theory of relativity in simple terms."
+#         )
+#     return response.text
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
