@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ItemType from "./ItemType";
+import ItemType from "../components/ItemType";
 import {
   RiDropLine,
   RiDropFill,
@@ -7,7 +7,7 @@ import {
   RiHandSanitizerLine,
   RiReservedLine,
 } from "@remixicon/react";
-import Chip from "./Chip";
+import Chip from "../components/Chip";
 
 const AssessmentPage = () => {
   const [page, setPage] = useState(0);

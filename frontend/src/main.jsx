@@ -4,7 +4,7 @@ import './index.css'
 import App from './App.jsx'
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 // import uploadImageMain from './uploadImageMain.jsx'
-import AssessmentPage from './components/AssessmentPage.js';
+import AssessmentPage from './pages/AssessmentPage.js';
 import UploadImage from './pages/UploadImage.jsx';
 
 const router = createBrowserRouter([
