@@ -30,7 +30,7 @@ const UploadBoxExample: React.FC<UploadBoxExampleProps> = ({ onFilesChange }) =>
 
   return (
     <div className="bg-white p-8 flex justify-center items-center">
-        <UploadBox onUpload={handleUpload} />
+        <UploadBox onUpload={handleUpload} multiple={false}/>
     </div>
   );
 };
