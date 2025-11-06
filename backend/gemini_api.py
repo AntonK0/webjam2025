@@ -44,9 +44,9 @@ def _create_json_prompt(user_profile: dict):
 def get_gemini_response(user_profile: dict, image_file) -> str:
     try:
         text_prompt, generation_config = _create_json_prompt(user_profile)
-        image = client.files.upload_file(file=image_file)
+        image_bytes = image_file.read()
         response = client.models.generate_content(
-            model="gemini-2.5-flash", contents=[text_prompt, image], config=generation_config)
+            model="gemini-2.5-flash", contents=[text_prompt, {"mime_type": "image/jpeg", "data": image_bytes}], config=generation_config)
         return response.text
     except Exception as e:
         print(f"Gemini API failed: {e}")
