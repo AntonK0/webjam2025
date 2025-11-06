@@ -12,7 +12,6 @@ import {
   RiReservedLine,
 } from "@remixicon/react";
 
-
 const AssessmentPage = () => {
   const [page, setPage] = useState(0);
   const [productType, setProductType] = useState("");
@@ -24,6 +23,16 @@ const AssessmentPage = () => {
   const [misc, setMisc] = useState("");
 
   let navigate = useNavigate();
+
+  const userValues = {
+    productType: productType,
+    hairType: hairType,
+    hairDensity: hairDensity,
+    oiliness: oiliness,
+    conditions: conditions,
+    allergies: allergies,
+    misc: misc,
+  };
 
   const conditionList = [
     "Frizz",
@@ -213,32 +222,34 @@ const AssessmentPage = () => {
   } else {
     return (
       <>
-      <div className="flex flex-wrap justify-center">
-        <div className="mt-36">
-          <h1 className="font-semibold mb-4 text-3xl">Any Allergies?</h1>
-          <TextBox
-            placeholder_text="Ex. Fragrances, Dyes, etc... Leave blank if none."
-            text={allergies}
-            setText={setAllegies}
-          />
-        </div>
-        <div className="mt-14">
-          <h1 className="font-semibold mb-4 text-3xl">Anything else to add?</h1>
-          <TextBox
-            placeholder_text="Your response here will give context to our AI. Leave blank if none."
-            text={misc}
-            setText={setMisc}
-          />
-        </div>
-        </div>
-        <div className="divider mr-3 ml-3 " />
-          <div className="flex justify-end mr-3">
-            <Next
-              onClick={() => {
-                navigate({pathname: "/uploadImage"});
-              }}
+        <div className="flex flex-wrap justify-center">
+          <div className="mt-36">
+            <h1 className="font-semibold mb-4 text-3xl">Any Allergies?</h1>
+            <TextBox
+              placeholder_text="Ex. Fragrances, Dyes, etc... Leave blank if none."
+              text={allergies}
+              setText={setAllegies}
             />
           </div>
+          <div className="mt-14">
+            <h1 className="font-semibold mb-4 text-3xl">
+              Anything else to add?
+            </h1>
+            <TextBox
+              placeholder_text="Your response here will give context to our AI. Leave blank if none."
+              text={misc}
+              setText={setMisc}
+            />
+          </div>
+        </div>
+        <div className="divider mr-3 ml-3 " />
+        <div className="flex justify-end mr-3">
+          <Next
+            onClick={() => {
+              navigate("/uploadImage", {state: userValues});
+            }}
+          />
+        </div>
       </>
     );
   }

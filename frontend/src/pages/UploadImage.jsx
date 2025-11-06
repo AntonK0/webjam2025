@@ -1,10 +1,14 @@
 import { useState } from 'react';
 import UploadBoxExample from "../components/UploadBoxExample.tsx";
 import LogoutHeader from "../components/LogoutHeader.tsx";
+import { useLocation } from 'react-router-dom';
 // Only one image upload page accepted
 
 function UploadImage() {
   const [uploadedFiles, setUploadedFiles] = useState([]);
+  const userValues = useLocation().state;
+
+  console.log(userValues)
 
   const handleNext = () => {
     // Process uploaded images
