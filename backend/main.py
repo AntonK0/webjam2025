@@ -28,10 +28,10 @@ class UserInput(BaseModel):
 
 class ShampooInput(UserInput):
     """Model for hair input data extending UserInput"""
-    hair_type: str = Field(..., example="blonde")
-    hair_type_specifics: Optional[str] = Field(None, description="Specifics about hair type. [Straight, Curly, Wavy, Coily]")
+    hair_type: str = Field(..., description="Type of hair. [Straight, Wavy, Curly, Coily]")
+    hair_density: Optional[str] = Field(None, description="Hair density. [Fine, Medium, Coarse]")
     hair_oiliness: Optional[str] = Field(None, description="The oiliness level of the hair. [Dry, Normal, Oily]")
-    hair_condition: Optional[List[str]] = Field(None, description="The hair condition. [Frizz, Itchy, Dandruff, Split-ends, Hair Loss]")
+    hair_condition: Optional[List[str]] = Field(None, description="The hair condition. [Frizz, Itchy, Dandruff, Split-ends, Hair Loss, Dyed-Hair]")
     allergies: Optional[str] = Field(None, description="Any known allergies that may be used in shampoo products.")
     additional_info: Optional[str] = Field(None, description="Any additional information the user wants to provide.")
 
@@ -83,7 +83,27 @@ def generate_shampoo_response(
         raise HTTPException(status_code=422, detail=str(e))
     
     # You can now use shampoo_input object for further processing
-    return test_gemini_connection()
+    hair_type = shampoo_input.hair_type
+    hair_density = shampoo_input.hair_density
+    hair_oiliness = shampoo_input.hair_oiliness
+    hair_condition = shampoo_input.hair_condition
+    allergies = shampoo_input.allergies
+    additional_info = shampoo_input.additional_info
 
-    #test commits
-    
+    # parsed data to user_profile dict
+    user_profile = {
+        "hair": {
+            "type": hair_type,
+            "oiliness": hair_oiliness,
+            "density": hair_density,
+            "conditions": hair_condition,
+            "allergens": allergies,
+            "other_notes": additional_info
+        }
+    }
+
+    # convert uploaded image to file
+    image_file = image.file
+
+    # TODO: return the gemini response here
+    return user_profile
