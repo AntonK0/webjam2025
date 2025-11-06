@@ -1,9 +1,11 @@
-from fastapi import FastAPI, UploadFile, File # make sure to install fastapi
+from fastapi import FastAPI, UploadFile, File, Form, HTTPException # make sure to install fastapi
 from fastapi.middleware.cors import CORSMiddleware
 
-from pydantic import BaseModel, Field #TODO add to requirements.txt later if used
-from typing import Optional
+from pydantic import BaseModel, Field, ValidationError #TODO add to requirements.txt later if used
+from typing import Optional, List
 from gemini_api import test_gemini_connection
+
+import json #TODO add to requirements.txt later if used
 
 app = FastAPI(
     title="WebJam 2025 API",
@@ -27,9 +29,9 @@ class UserInput(BaseModel):
 class ShampooInput(UserInput):
     """Model for hair input data extending UserInput"""
     hair_type: str = Field(..., example="blonde")
-    hair_type_specifics: Optional[list[str]] = Field(None, description="Specifics about hair type. [Straight, Curly, Wavy, Coily]")
-    hair_oiliness: Optional[list[str]] = Field(None, description="The oiliness level of the hair. [Dry, Normal, Oily]")
-    hair_condition: Optional[list[str]] = Field(None, description="The hair condition. [Frizz, Itchy, Dandruff, Split-ends, Hair Loss]")
+    hair_type_specifics: Optional[List[str]] = Field(None, description="Specifics about hair type. [Straight, Curly, Wavy, Coily]")
+    hair_oiliness: Optional[List[str]] = Field(None, description="The oiliness level of the hair. [Dry, Normal, Oily]")
+    hair_condition: Optional[List[str]] = Field(None, description="The hair condition. [Frizz, Itchy, Dandruff, Split-ends, Hair Loss]")
     allergies: Optional[str] = Field(None, description="Any known allergies that may be used in shampoo products.")
     additional_info: Optional[str] = Field(None, description="Any additional information the user wants to provide.")
 
@@ -70,7 +72,15 @@ async def health_check():
 
 @app.post("/generate-shampoo-response")
 async def generate_shampoo_response(
-    shampoo_input: ShampooInput,
+    shampoo_input_json: str = Form(...),
     image: UploadFile = File(...)
 ):
+    try:
+        shampoo_input = ShampooInput.model_validate(json.loads(shampoo_input_json))
+    
+        
+    except ValidationError as e:
+        raise HTTPException(status_code=422, detail=str(e))
+    
+    # You can now use shampoo_input object for further processing
     return test_gemini_connection()
