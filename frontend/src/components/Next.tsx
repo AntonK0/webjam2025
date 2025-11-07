@@ -7,7 +7,7 @@ interface NextProps {
 
 const Next: React.FC<NextProps> = ({ onClick }) => {
   return (
-    <button onClick={onClick} className="btn btn-outline border-2">
+    <button onClick={onClick} className="btn btn-outline border-2 rounded-xl">
       <div className="w-28 flex justify-between">
         <p className="text-base">Next</p>
         <RiArrowRightLine size="24px" />
