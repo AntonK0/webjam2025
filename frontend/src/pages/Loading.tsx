@@ -27,9 +27,9 @@ const Loading = () => {
     queryFn: () =>
       fetch("http://127.0.0.1:8000/generate-shampoo-response", {
         method: "POST",
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
+        // headers: {
+        //   "Content-Type": "multipart/form-data",
+        // },
         body: formData,
       }),
   });
