@@ -33,6 +33,7 @@ const Loading = () => {
       }).then((res) => res.json()),
   });
 
+<<<<<<< HEAD
     if (data !== undefined) {
       console.log(JSON.parse(data))
       const response = {
@@ -59,6 +60,11 @@ const Loading = () => {
       });
     }
   
+=======
+  
+
+  console.log(userValues, formData, data);
+>>>>>>> c4b4c5453d1caa071fe23670276c77b6cfebe2bc
   return <div>Loading</div>;
 };
 

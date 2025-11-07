@@ -50,7 +50,7 @@ const UploadBox: React.FC<UploadBoxProps> = ({
         onClick={handleClick}
         onDragOver={handleDragOver}
         onDrop={handleDrop}
-        className="absolute inset-0 border-2 border-gray-400 border-dashed rounded-2xl cursor-pointer 
+        className="absolute inset-0 bg-white border-2 border-gray-400 border-dashed rounded-2xl cursor-pointer 
                    hover:bg-gray-50 transition-colors duration-200 flex flex-col items-center justify-center"
       >
         {/* Upload Icon */}
