@@ -12,7 +12,7 @@ function UploadImage() {
 
   if (uploadedFiles.length > 0) {
     // Process uploaded images
-    console.log('Submitting files:', uploadedFiles);
+    // console.log('Submitting files:', uploadedFiles);
     userValues.files = uploadedFiles
     navigate('/loading', {state: userValues})
   };
