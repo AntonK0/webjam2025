@@ -57,10 +57,6 @@ const Loading = () => {
       secondSearchLink: parsedData.second_search_link,
       alternativePickTitle: parsedData.alternative_pick_title,
       alternativePickType: parsedData.altnerative_pick_type,
-      alternativeAiSummaryOfShampoo:
-        parsedData.alternative_ai_summary_of_shampoo,
-      alternativeWhyRecommend: parsedData.alternative_why_recommend,
-      alternativeSearchLink: parsedData.alternative_search_link,
     };
 
     navigate("/results", {
