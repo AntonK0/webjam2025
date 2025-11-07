@@ -34,7 +34,7 @@ const AlternativePick: React.FC<AlternativePickProps> = ({
       {/* Content Container */}
       <div className="pr-6 flex flex-col gap-1">
         {/* Product Name */}
-        <h3 className="font-bold text-xl leading-tight text-black">
+        <h3 className="font-semibold text-xl leading-tight text-black">
           {productName}
         </h3>
 
