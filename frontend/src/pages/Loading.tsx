@@ -1,6 +1,7 @@
+import React from 'react';
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useLocation, useNavigate } from "react-router-dom";
-
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 const Loading = () => {
   const userValues = useLocation().state;
   const formData = new FormData();
@@ -59,7 +60,21 @@ const Loading = () => {
     });
   }
   
-  return <div>Loading</div>;
+    return ( 
+    <div className="wrapper height-screen mt-70 flex flex-col justify-center items-center">
+
+      <div className="flex justify-center items-center mx-auto w-full h-full">
+        <DotLottieReact
+        src="https://lottie.host/33f50ab7-a8f9-41cc-b11d-039a3033c006/2KsVtVP9so.lottie"
+        loop
+        autoplay
+      />
+      </div>
+      <div className="text-2xl font-bold">
+        <p>Loading...</p>
+      </div>
+    </div>
+    );
 };
 
 export default Loading;
