@@ -9,13 +9,15 @@ import UploadImage from './pages/UploadImage.jsx';
 import Loading from './pages/Loading.js';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Results from './pages/Results.js';
+import Expand from './pages/Expand.js';
 
 const router = createBrowserRouter([
   {path: "/", element: <App />},
   {path: "/assessment", element: <AssessmentPage />},
   {path: "/uploadImage", element: <UploadImage />},
   {path: "/loading", element: <Loading />},
-  {path: "/results", element: <Results />}
+  {path: "/results", element: <Results />},
+  {path: "/results/expand", element: <Expand />}
 ]);
 
 const queryClient = new QueryClient()
