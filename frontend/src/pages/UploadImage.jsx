@@ -10,8 +10,6 @@ function UploadImage() {
 
   let navigate = useNavigate();
 
-  console.log(userValues)
-
   if (uploadedFiles.length > 0) {
     // Process uploaded images
     console.log('Submitting files:', uploadedFiles);
