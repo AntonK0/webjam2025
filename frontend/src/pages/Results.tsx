@@ -46,7 +46,7 @@ const Results = () => {
         </div>
         <ProductCardMobile
           productName={response.secondPickTitle}
-          productDescription={response.alternativePickType}
+          productDescription={response.secondPickType}
           onExpand={() => {navigate('/results/expand', {state: {
             title: response.secondPickTitle,
             type: response.secondPickType,
