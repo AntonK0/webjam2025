@@ -1,12 +1,11 @@
-import React from 'react';
 import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Loading = () => {
   const userValues = useLocation().state;
   const formData = new FormData();
 
-  const reader = new FileReader();
+  let navigate = useNavigate();
 
   formData.append(
     "shampoo_input_json",
@@ -19,10 +18,9 @@ const Loading = () => {
       additional_info: userValues.misc,
     })
   );
-  
-  formData.append("image", userValues.files[0])
 
-  const queryClient = useQueryClient();
+  formData.append("image", userValues.files[0]);
+
   const { isLoading, error, data } = useQuery({
     queryKey: ["recommendations"],
     queryFn: () =>
@@ -32,10 +30,35 @@ const Loading = () => {
         //   "Content-Type": "multipart/form-data",
         // },
         body: formData,
-      }).then(res => res.json()),
+      }).then((res) => res.json()),
   });
 
-  console.log(userValues, formData, data);
+    if (data !== undefined) {
+      console.log(JSON.parse(data))
+      const response = {
+        topPickTitle: JSON.parse(data).top_pick_title,
+        topPickType: JSON.parse(data).top_pick_type,
+        topAiSummaryOfShampoo: JSON.parse(data).top_ai_summary_of_shampoo,
+        topWhyRecommend: JSON.parse(data).top_why_recommend,
+        topSearchLink: JSON.parse(data).top_search_link,
+        secondPickTitle: JSON.parse(data).second_pick_title,
+        secondPickType: JSON.parse(data).second_pick_type,
+        secondAiSummaryOfShampoo: JSON.parse(data).second_ai_summary_of_shampoo,
+        secondWhyRecommend: JSON.parse(data).second_why_recommend,
+        secondSearchLink: JSON.parse(data).second_search_link,
+        alternativePickTitle: JSON.parse(data).alternative_pick_title,
+        alternativePickType: JSON.parse(data).altnerative_pick_type,
+        alternativeAiSummaryOfShampoo:
+          JSON.parse(data).alternative_ai_summary_of_shampoo,
+        alternativeWhyRecommend: JSON.parse(data).alternative_why_recommend,
+        alternativeSearchLink: JSON.parse(data).alternative_search_link,
+      };
+
+      navigate("/results", {
+        state: response,
+      });
+    }
+  
   return <div>Loading</div>;
 };
 
