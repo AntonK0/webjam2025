@@ -1,3 +1,4 @@
+import React from 'react';
 import { useState } from "react";
 import ItemType from "../components/ItemType";
 import Chip from "../components/Chip";
@@ -54,6 +55,57 @@ const AssessmentPage = () => {
   if (page == 0) {
     return (
       <>
+        <div id="bg-wrap">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <radialGradient id="Gradient1" cx="50%" cy="50%" fx="0.441602%" fy="50%" r=".5">
+                <animate attributeName="fx" dur="34s" values="0%;3%;0%" repeatCount="indefinite"></animate>
+                <stop offset="0%" stopColor="rgba(255, 200, 240, 0.6)"></stop>
+                <stop offset="100%" stopColor="rgba(255, 200, 240, 0)"></stop>
+              </radialGradient>
+              <radialGradient id="Gradient2" cx="50%" cy="50%" fx="2.68147%" fy="50%" r=".5">
+                <animate attributeName="fx" dur="23.5s" values="0%;3%;0%" repeatCount="indefinite"></animate>
+                <stop offset="0%" stopColor="rgba(255, 245, 200, 0.6)"></stop>
+                <stop offset="100%" stopColor="rgba(255, 245, 200, 0)"></stop>
+              </radialGradient>
+              <radialGradient id="Gradient3" cx="50%" cy="50%" fx="0.836536%" fy="50%" r=".5">
+                <animate attributeName="fx" dur="21.5s" values="0%;3%;0%" repeatCount="indefinite"></animate>
+                <stop offset="0%" stopColor="rgba(200, 240, 255, 0.6)"></stop>
+                <stop offset="100%" stopColor="rgba(200, 240, 255, 0)"></stop>
+              </radialGradient>
+              <radialGradient id="Gradient4" cx="50%" cy="50%" fx="4.56417%" fy="50%" r=".5">
+                <animate attributeName="fx" dur="23s" values="0%;5%;0%" repeatCount="indefinite"></animate>
+                <stop offset="0%" stopColor="rgba(200, 255, 220, 0.6)"></stop>
+                <stop offset="100%" stopColor="rgba(200, 255, 220, 0)"></stop>
+              </radialGradient>
+              <radialGradient id="Gradient5" cx="50%" cy="50%" fx="2.65405%" fy="50%" r=".5">
+                <animate attributeName="fx" dur="24.5s" values="0%;5%;0%" repeatCount="indefinite"></animate>
+                <stop offset="0%" stopColor="rgba(220, 220, 255, 0.6)"></stop>
+                <stop offset="100%" stopColor="rgba(220, 220, 255, 0)"></stop>
+              </radialGradient>
+              <radialGradient id="Gradient6" cx="50%" cy="50%" fx="0.981338%" fy="50%" r=".5">
+                <animate attributeName="fx" dur="25.5s" values="0%;5%;0%" repeatCount="indefinite"></animate>
+                <stop offset="0%" stopColor="rgba(255, 220, 220, 0.6)"></stop>
+                <stop offset="100%" stopColor="rgba(255, 220, 220, 0)"></stop>
+              </radialGradient>
+            </defs>
+            <rect x="13.744%" y="1.18473%" width="100%" height="100%" fill="url(#Gradient1)" transform="rotate(334.41 50 50)">
+              <animate attributeName="x" dur="20s" values="25%;0%;25%" repeatCount="indefinite"></animate>
+              <animate attributeName="y" dur="21s" values="0%;25%;0%" repeatCount="indefinite"></animate>
+              <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="7s" repeatCount="indefinite"></animateTransform>
+            </rect>
+            <rect x="-2.17916%" y="35.4267%" width="100%" height="100%" fill="url(#Gradient2)" transform="rotate(255.072 50 50)">
+              <animate attributeName="x" dur="23s" values="-25%;0%;-25%" repeatCount="indefinite"></animate>
+              <animate attributeName="y" dur="24s" values="0%;50%;0%" repeatCount="indefinite"></animate>
+              <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="12s" repeatCount="indefinite"></animateTransform>
+            </rect>
+            <rect x="9.00483%" y="14.5733%" width="100%" height="100%" fill="url(#Gradient3)" transform="rotate(139.903 50 50)">
+              <animate attributeName="x" dur="25s" values="0%;25%;0%" repeatCount="indefinite"></animate>
+              <animate attributeName="y" dur="12s" values="0%;25%;0%" repeatCount="indefinite"></animate>
+              <animateTransform attributeName="transform" type="rotate" from="360 50 50" to="0 50 50" dur="9s" repeatCount="indefinite"></animateTransform>
+            </rect>
+          </svg>
+        </div>
         <div>
           <h1 className="text-3xl text-center font-semibold mt-40">
             What product are you looking for?
@@ -92,6 +144,57 @@ const AssessmentPage = () => {
   } else if (page == 1) {
     return (
       <>
+        <div id="bg-wrap">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <radialGradient id="Gradient1" cx="50%" cy="50%" fx="0.441602%" fy="50%" r=".5">
+                <animate attributeName="fx" dur="34s" values="0%;3%;0%" repeatCount="indefinite"></animate>
+                <stop offset="0%" stopColor="rgba(255, 200, 240, 0.6)"></stop>
+                <stop offset="100%" stopColor="rgba(255, 200, 240, 0)"></stop>
+              </radialGradient>
+              <radialGradient id="Gradient2" cx="50%" cy="50%" fx="2.68147%" fy="50%" r=".5">
+                <animate attributeName="fx" dur="23.5s" values="0%;3%;0%" repeatCount="indefinite"></animate>
+                <stop offset="0%" stopColor="rgba(255, 245, 200, 0.6)"></stop>
+                <stop offset="100%" stopColor="rgba(255, 245, 200, 0)"></stop>
+              </radialGradient>
+              <radialGradient id="Gradient3" cx="50%" cy="50%" fx="0.836536%" fy="50%" r=".5">
+                <animate attributeName="fx" dur="21.5s" values="0%;3%;0%" repeatCount="indefinite"></animate>
+                <stop offset="0%" stopColor="rgba(200, 240, 255, 0.6)"></stop>
+                <stop offset="100%" stopColor="rgba(200, 240, 255, 0)"></stop>
+              </radialGradient>
+              <radialGradient id="Gradient4" cx="50%" cy="50%" fx="4.56417%" fy="50%" r=".5">
+                <animate attributeName="fx" dur="23s" values="0%;5%;0%" repeatCount="indefinite"></animate>
+                <stop offset="0%" stopColor="rgba(200, 255, 220, 0.6)"></stop>
+                <stop offset="100%" stopColor="rgba(200, 255, 220, 0)"></stop>
+              </radialGradient>
+              <radialGradient id="Gradient5" cx="50%" cy="50%" fx="2.65405%" fy="50%" r=".5">
+                <animate attributeName="fx" dur="24.5s" values="0%;5%;0%" repeatCount="indefinite"></animate>
+                <stop offset="0%" stopColor="rgba(220, 220, 255, 0.6)"></stop>
+                <stop offset="100%" stopColor="rgba(220, 220, 255, 0)"></stop>
+              </radialGradient>
+              <radialGradient id="Gradient6" cx="50%" cy="50%" fx="0.981338%" fy="50%" r=".5">
+                <animate attributeName="fx" dur="25.5s" values="0%;5%;0%" repeatCount="indefinite"></animate>
+                <stop offset="0%" stopColor="rgba(255, 220, 220, 0.6)"></stop>
+                <stop offset="100%" stopColor="rgba(255, 220, 220, 0)"></stop>
+              </radialGradient>
+            </defs>
+            <rect x="13.744%" y="1.18473%" width="100%" height="100%" fill="url(#Gradient1)" transform="rotate(334.41 50 50)">
+              <animate attributeName="x" dur="20s" values="25%;0%;25%" repeatCount="indefinite"></animate>
+              <animate attributeName="y" dur="21s" values="0%;25%;0%" repeatCount="indefinite"></animate>
+              <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="7s" repeatCount="indefinite"></animateTransform>
+            </rect>
+            <rect x="-2.17916%" y="35.4267%" width="100%" height="100%" fill="url(#Gradient2)" transform="rotate(255.072 50 50)">
+              <animate attributeName="x" dur="23s" values="-25%;0%;-25%" repeatCount="indefinite"></animate>
+              <animate attributeName="y" dur="24s" values="0%;50%;0%" repeatCount="indefinite"></animate>
+              <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="12s" repeatCount="indefinite"></animateTransform>
+            </rect>
+            <rect x="9.00483%" y="14.5733%" width="100%" height="100%" fill="url(#Gradient3)" transform="rotate(139.903 50 50)">
+              <animate attributeName="x" dur="25s" values="0%;25%;0%" repeatCount="indefinite"></animate>
+              <animate attributeName="y" dur="12s" values="0%;25%;0%" repeatCount="indefinite"></animate>
+              <animateTransform attributeName="transform" type="rotate" from="360 50 50" to="0 50 50" dur="9s" repeatCount="indefinite"></animateTransform>
+            </rect>
+          </svg>
+        </div>
         <div>
           <h1 className="text-3xl text-center font-semibold mt-40">
             What is your hair type?
@@ -139,13 +242,64 @@ const AssessmentPage = () => {
   } else if (page == 2) {
     return (
       <>
-        <div>
-          <h1 className="text-3xl text-center font-semibold mt-40">
+        <div id="bg-wrap">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <radialGradient id="Gradient1" cx="50%" cy="50%" fx="0.441602%" fy="50%" r=".5">
+                <animate attributeName="fx" dur="34s" values="0%;3%;0%" repeatCount="indefinite"></animate>
+                <stop offset="0%" stopColor="rgba(255, 200, 240, 0.6)"></stop>
+                <stop offset="100%" stopColor="rgba(255, 200, 240, 0)"></stop>
+              </radialGradient>
+              <radialGradient id="Gradient2" cx="50%" cy="50%" fx="2.68147%" fy="50%" r=".5">
+                <animate attributeName="fx" dur="23.5s" values="0%;3%;0%" repeatCount="indefinite"></animate>
+                <stop offset="0%" stopColor="rgba(255, 245, 200, 0.6)"></stop>
+                <stop offset="100%" stopColor="rgba(255, 245, 200, 0)"></stop>
+              </radialGradient>
+              <radialGradient id="Gradient3" cx="50%" cy="50%" fx="0.836536%" fy="50%" r=".5">
+                <animate attributeName="fx" dur="21.5s" values="0%;3%;0%" repeatCount="indefinite"></animate>
+                <stop offset="0%" stopColor="rgba(200, 240, 255, 0.6)"></stop>
+                <stop offset="100%" stopColor="rgba(200, 240, 255, 0)"></stop>
+              </radialGradient>
+              <radialGradient id="Gradient4" cx="50%" cy="50%" fx="4.56417%" fy="50%" r=".5">
+                <animate attributeName="fx" dur="23s" values="0%;5%;0%" repeatCount="indefinite"></animate>
+                <stop offset="0%" stopColor="rgba(200, 255, 220, 0.6)"></stop>
+                <stop offset="100%" stopColor="rgba(200, 255, 220, 0)"></stop>
+              </radialGradient>
+              <radialGradient id="Gradient5" cx="50%" cy="50%" fx="2.65405%" fy="50%" r=".5">
+                <animate attributeName="fx" dur="24.5s" values="0%;5%;0%" repeatCount="indefinite"></animate>
+                <stop offset="0%" stopColor="rgba(220, 220, 255, 0.6)"></stop>
+                <stop offset="100%" stopColor="rgba(220, 220, 255, 0)"></stop>
+              </radialGradient>
+              <radialGradient id="Gradient6" cx="50%" cy="50%" fx="0.981338%" fy="50%" r=".5">
+                <animate attributeName="fx" dur="25.5s" values="0%;5%;0%" repeatCount="indefinite"></animate>
+                <stop offset="0%" stopColor="rgba(255, 220, 220, 0.6)"></stop>
+                <stop offset="100%" stopColor="rgba(255, 220, 220, 0)"></stop>
+              </radialGradient>
+            </defs>
+            <rect x="13.744%" y="1.18473%" width="100%" height="100%" fill="url(#Gradient1)" transform="rotate(334.41 50 50)">
+              <animate attributeName="x" dur="20s" values="25%;0%;25%" repeatCount="indefinite"></animate>
+              <animate attributeName="y" dur="21s" values="0%;25%;0%" repeatCount="indefinite"></animate>
+              <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="7s" repeatCount="indefinite"></animateTransform>
+            </rect>
+            <rect x="-2.17916%" y="35.4267%" width="100%" height="100%" fill="url(#Gradient2)" transform="rotate(255.072 50 50)">
+              <animate attributeName="x" dur="23s" values="-25%;0%;-25%" repeatCount="indefinite"></animate>
+              <animate attributeName="y" dur="24s" values="0%;50%;0%" repeatCount="indefinite"></animate>
+              <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="12s" repeatCount="indefinite"></animateTransform>
+            </rect>
+            <rect x="9.00483%" y="14.5733%" width="100%" height="100%" fill="url(#Gradient3)" transform="rotate(139.903 50 50)">
+              <animate attributeName="x" dur="25s" values="0%;25%;0%" repeatCount="indefinite"></animate>
+              <animate attributeName="y" dur="12s" values="0%;25%;0%" repeatCount="indefinite"></animate>
+              <animateTransform attributeName="transform" type="rotate" from="360 50 50" to="0 50 50" dur="9s" repeatCount="indefinite"></animateTransform>
+            </rect>
+          </svg>
+        </div>
+        <div className='mx-12'>
+          <h1 className="text-3xl font-semibold mt-20">
             Does your hair have any of the following traits?
           </h1>
-          <div className="mt-9 ml-5">
+          <div className="mt-9">
             <h2 className="text-xl font-medium mb-2">Hair Density</h2>
-            <div className="flex gap-5">
+            <div className="flex flex-wrap gap-5">
               <Chip
                 label="Fine"
                 selected={hairDensity == "Fine"}
@@ -169,7 +323,7 @@ const AssessmentPage = () => {
               />
             </div>
           </div>
-          <div className="mt-9 ml-5">
+          <div className="mt-9">
             <h2 className="text-xl font-medium mb-2">Oiliness</h2>
             <div className="flex gap-5">
               <Chip
@@ -195,7 +349,7 @@ const AssessmentPage = () => {
               />
             </div>
           </div>
-          <div className="mt-9 ml-5">
+          <div className="mt-9">
             <h2 className="text-xl font-medium mb-2">Conditions</h2>
             <div className="flex flex-wrap gap-x-5 gap-y-3">
               {conditionList.map((c) => (
@@ -208,8 +362,8 @@ const AssessmentPage = () => {
               ))}
             </div>
           </div>
-          <div className="divider mr-3 ml-3 " />
-          <div className="flex justify-end mr-3">
+          <div className="divider " />
+          <div className="flex justify-end">
             <Next
               onClick={() => {
                 setPage(3);
@@ -222,7 +376,58 @@ const AssessmentPage = () => {
   } else {
     return (
       <>
-        <div className="flex flex-wrap justify-center">
+        <div id="bg-wrap">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <radialGradient id="Gradient1" cx="50%" cy="50%" fx="0.441602%" fy="50%" r=".5">
+                <animate attributeName="fx" dur="34s" values="0%;3%;0%" repeatCount="indefinite"></animate>
+                <stop offset="0%" stopColor="rgba(255, 200, 240, 0.6)"></stop>
+                <stop offset="100%" stopColor="rgba(255, 200, 240, 0)"></stop>
+              </radialGradient>
+              <radialGradient id="Gradient2" cx="50%" cy="50%" fx="2.68147%" fy="50%" r=".5">
+                <animate attributeName="fx" dur="23.5s" values="0%;3%;0%" repeatCount="indefinite"></animate>
+                <stop offset="0%" stopColor="rgba(255, 245, 200, 0.6)"></stop>
+                <stop offset="100%" stopColor="rgba(255, 245, 200, 0)"></stop>
+              </radialGradient>
+              <radialGradient id="Gradient3" cx="50%" cy="50%" fx="0.836536%" fy="50%" r=".5">
+                <animate attributeName="fx" dur="21.5s" values="0%;3%;0%" repeatCount="indefinite"></animate>
+                <stop offset="0%" stopColor="rgba(200, 240, 255, 0.6)"></stop>
+                <stop offset="100%" stopColor="rgba(200, 240, 255, 0)"></stop>
+              </radialGradient>
+              <radialGradient id="Gradient4" cx="50%" cy="50%" fx="4.56417%" fy="50%" r=".5">
+                <animate attributeName="fx" dur="23s" values="0%;5%;0%" repeatCount="indefinite"></animate>
+                <stop offset="0%" stopColor="rgba(200, 255, 220, 0.6)"></stop>
+                <stop offset="100%" stopColor="rgba(200, 255, 220, 0)"></stop>
+              </radialGradient>
+              <radialGradient id="Gradient5" cx="50%" cy="50%" fx="2.65405%" fy="50%" r=".5">
+                <animate attributeName="fx" dur="24.5s" values="0%;5%;0%" repeatCount="indefinite"></animate>
+                <stop offset="0%" stopColor="rgba(220, 220, 255, 0.6)"></stop>
+                <stop offset="100%" stopColor="rgba(220, 220, 255, 0)"></stop>
+              </radialGradient>
+              <radialGradient id="Gradient6" cx="50%" cy="50%" fx="0.981338%" fy="50%" r=".5">
+                <animate attributeName="fx" dur="25.5s" values="0%;5%;0%" repeatCount="indefinite"></animate>
+                <stop offset="0%" stopColor="rgba(255, 220, 220, 0.6)"></stop>
+                <stop offset="100%" stopColor="rgba(255, 220, 220, 0)"></stop>
+              </radialGradient>
+            </defs>
+            <rect x="13.744%" y="1.18473%" width="100%" height="100%" fill="url(#Gradient1)" transform="rotate(334.41 50 50)">
+              <animate attributeName="x" dur="20s" values="25%;0%;25%" repeatCount="indefinite"></animate>
+              <animate attributeName="y" dur="21s" values="0%;25%;0%" repeatCount="indefinite"></animate>
+              <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="7s" repeatCount="indefinite"></animateTransform>
+            </rect>
+            <rect x="-2.17916%" y="35.4267%" width="100%" height="100%" fill="url(#Gradient2)" transform="rotate(255.072 50 50)">
+              <animate attributeName="x" dur="23s" values="-25%;0%;-25%" repeatCount="indefinite"></animate>
+              <animate attributeName="y" dur="24s" values="0%;50%;0%" repeatCount="indefinite"></animate>
+              <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="12s" repeatCount="indefinite"></animateTransform>
+            </rect>
+            <rect x="9.00483%" y="14.5733%" width="100%" height="100%" fill="url(#Gradient3)" transform="rotate(139.903 50 50)">
+              <animate attributeName="x" dur="25s" values="0%;25%;0%" repeatCount="indefinite"></animate>
+              <animate attributeName="y" dur="12s" values="0%;25%;0%" repeatCount="indefinite"></animate>
+              <animateTransform attributeName="transform" type="rotate" from="360 50 50" to="0 50 50" dur="9s" repeatCount="indefinite"></animateTransform>
+            </rect>
+          </svg>
+        </div>
+        <div className="flex flex-wrap justify-center mx-12">
           <div className="mt-36">
             <h1 className="font-semibold mb-4 text-3xl">Any Allergies?</h1>
             <TextBox
@@ -242,8 +447,8 @@ const AssessmentPage = () => {
             />
           </div>
         </div>
-        <div className="divider mr-3 ml-3 " />
-        <div className="flex justify-end mr-3">
+        <div className="divider mx-10 " />
+        <div className="flex justify-end mx-10">
           <Next
             onClick={() => {
               navigate("/uploadImage", {state: userValues});
