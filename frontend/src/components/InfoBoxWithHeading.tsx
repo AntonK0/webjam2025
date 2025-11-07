@@ -6,7 +6,7 @@ interface InfoBoxWithHeadingProps {
 
 const InfoBoxWithHeading = ({heading, body}: InfoBoxWithHeadingProps) => {
   return (
-    <div className="card w-80 border-solid border-black border-3">
+    <div className="card w-80 border-solid border-black border-3 mt-6">
       <div className="card-body">
         <h2 className="card-title text-xl">{heading}</h2>
         <p className="text-sm">
