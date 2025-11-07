@@ -39,7 +39,7 @@ def _create_json_prompt(user_profile: dict):
     generation_config = {
         "response_mime_type": "text/plain",
         "response_schema": output_schema,
-        "thinking_config": {"thinking_budget": 0},
+        "thinking_config": {"thinking_budget": -1},
         "tools": [{"google_search": {}}]
     }
     return text_prompt, generation_config
