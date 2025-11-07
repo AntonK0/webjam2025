@@ -4,46 +4,45 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 const Loading = () => {
   const userValues = useLocation().state;
-  const formData = new FormData();
-
   let navigate = useNavigate();
-
-  formData.append(
-    "shampoo_input_json",
-    JSON.stringify({
-      hair_type: userValues.hairType,
-      hair_oiliness: userValues.oiliness,
-      hair_density: userValues.hairDensity,
-      hair_condition: userValues.conditions,
-      allergies: userValues.allergies,
-      additional_info: userValues.misc,
-    })
-  );
-
-  formData.append("image", userValues.files[0]);
 
   const { isLoading, error, data } = useQuery({
     queryKey: ["recommendations"],
-    queryFn: () =>
-      fetch("https://webjam2025-backend.onrender.com/generate-shampoo-response", {
+    queryFn: () => {
+      const formData = new FormData();
+      formData.append(
+        "shampoo_input_json",
+        JSON.stringify({
+          hair_type: userValues.hairType,
+          hair_oiliness: userValues.oiliness,
+          hair_density: userValues.hairDensity,
+          hair_condition: userValues.conditions,
+          allergies: userValues.allergies,
+          additional_info: userValues.misc,
+        })
+      );
+      formData.append("image", userValues.files[0]);
+      
+      return fetch("https://webjam2025-backend.onrender.com/generate-shampoo-response", {
         method: "POST",
-        // headers: {
-        //   "Content-Type": "multipart/form-data",
-        // },
         body: formData,
-      }).then((res) => res.json()),
+      }).then((res) => res.json());
+    },
+    retry: false,
+    staleTime: Infinity,
+    gcTime: Infinity,
   });
 
   if (data !== undefined) {
-    // Gen-AI Code
+
     let cleanedData = data;
     if (typeof data === 'string') {
       cleanedData = data.replace(/```json\s*/g, '').replace(/```\s*/g, '').trim();
     }
-    
+
     const parsedData = typeof cleanedData === 'string' ? JSON.parse(cleanedData) : cleanedData;
     console.log(parsedData);
-    
+
     const response = {
       topPickTitle: parsedData.top_pick_title,
       topPickType: parsedData.top_pick_type,
