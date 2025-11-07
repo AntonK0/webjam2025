@@ -5,6 +5,8 @@ import Chip from "../components/Chip";
 import Next from "../components/Next";
 import TextBox from "../components/TextBox";
 import { useNavigate } from "react-router";
+
+
 import {
   RiDropLine,
   RiDropFill,
@@ -107,7 +109,7 @@ const AssessmentPage = () => {
           </svg>
         </div>
         <div>
-          <h1 className="text-3xl text-center font-semibold mt-40">
+          <h1 className="text-3xl text-center mx-10 font-semibold mt-40">
             What product are you looking for?
           </h1>
           <div className="flex justify-center flex-wrap mt-10">
@@ -202,7 +204,7 @@ const AssessmentPage = () => {
           <div className="flex justify-center flex-wrap mt-10">
             <ItemType
               item="Straight"
-              icon={<RiReservedLine />}
+              icon= {null}
               onClick={() => {
                 setHairType("Straight");
                 setPage(2);
@@ -210,7 +212,7 @@ const AssessmentPage = () => {
             />
             <ItemType
               item="Curly"
-              icon={<RiReservedLine />}
+              icon= {null}
               onClick={() => {
                 setHairType("Curly");
                 setPage(2);
@@ -219,7 +221,7 @@ const AssessmentPage = () => {
             />
             <ItemType
               item="Wavy"
-              icon={<RiReservedLine />}
+              icon= {null}
               onClick={() => {
                 setHairType("Wavy");
                 setPage(2);
@@ -228,7 +230,7 @@ const AssessmentPage = () => {
             />
             <ItemType
               item="Coily"
-              icon={<RiReservedLine />}
+              icon= {null}
               onClick={() => {
                 setHairType("Coily");
                 setPage(2);
