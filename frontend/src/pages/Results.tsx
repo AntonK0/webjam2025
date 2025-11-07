@@ -21,7 +21,7 @@ const Results = () => {
 
   return (
     <>
-    <div className="wrapper pt-18 pl-12 pr-12 flex justify-center flex-wrap">
+    <div className="wrapper pt-16 pl-12 pr-12 pb-32 flex justify-center flex-wrap">
         <h1 className="text-3xl font-semibold mb-10">
           Here's what we recommend.
         </h1>
