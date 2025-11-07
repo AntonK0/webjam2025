@@ -7,6 +7,7 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import AssessmentPage from './pages/AssessmentPage.js';
 import UploadImage from './pages/UploadImage.jsx';
 import Loading from './pages/Loading.js';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 const router = createBrowserRouter([
   {path: "/", element: <App />},
@@ -15,9 +16,13 @@ const router = createBrowserRouter([
   {path: "/loading", element: <Loading />},
 ]);
 
+const queryClient = new QueryClient()
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <QueryClientProvider client={queryClient}>
     <RouterProvider router={router} />
+    </QueryClientProvider>
   </StrictMode>
 )
 
