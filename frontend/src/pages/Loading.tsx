@@ -1,3 +1,4 @@
+import React from 'react';
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useLocation } from "react-router-dom";
 
@@ -12,7 +13,7 @@ const Loading = () => {
     JSON.stringify({
       hair_type: userValues.hairType,
       hair_oiliness: userValues.oiliness,
-      hair_density: userValues.hairType,
+      hair_density: userValues.hairDensity,
       hair_condition: userValues.conditions,
       allergies: userValues.allergies,
       additional_info: userValues.misc,
@@ -31,7 +32,7 @@ const Loading = () => {
         //   "Content-Type": "multipart/form-data",
         // },
         body: formData,
-      }),
+      }).then(res => res.json()),
   });
 
   console.log(userValues, formData, data);
