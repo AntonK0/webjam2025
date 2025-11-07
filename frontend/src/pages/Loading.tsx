@@ -35,10 +35,9 @@ const Loading = () => {
   });
 
   if (data !== undefined) {
-    // Clean the data if it's wrapped in markdown code blocks
+    // Gen-AI Code
     let cleanedData = data;
     if (typeof data === 'string') {
-      // Remove markdown code block syntax if present
       cleanedData = data.replace(/```json\s*/g, '').replace(/```\s*/g, '').trim();
     }
     

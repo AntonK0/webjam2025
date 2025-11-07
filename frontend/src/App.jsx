@@ -1,3 +1,4 @@
+// Credit: background by https://codepen.io/alvarotrigo/pen/qBMMyxz
 import "./App.css";
 import {RiCameraLensAiFill} from "@remixicon/react";
 import LandingPageButton from "./components/LandingPageButton.tsx";
