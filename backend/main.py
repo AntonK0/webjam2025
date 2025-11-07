@@ -16,7 +16,7 @@ app = FastAPI(
 # configure CORS to allow frontend to communicate with backend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://webjam2025-bcurvldvp-anton-kos-projects.vercel.app", "http://localhost:5173"],  # connect to react dev server :)
+    allow_origins=["https://webjam2025-gamma.vercel.app", "http://localhost:5173"],  # connect to react dev server :)
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
