@@ -61,13 +61,13 @@ const Results = () => {
         <AlternativePick
           productName={response.alternativePickTitle}
           productDescription={response.alternativePickType}
-          onExpand={() => {navigate('/results/expand', {state: {
-            title: response.alternativePickTitle,
-            type: response.alternativePickType,
-            aiSummary: response.alternativeAiSummaryOfShampoo,
-            link: response.alternativeSearchLink,
-            why: response.alternativeWhyRecommend
-          }})}}
+          // onExpand={() => {navigate('/results/expand', {state: {
+          //   title: response.alternativePickTitle,
+          //   type: response.alternativePickType,
+          //   aiSummary: response.alternativeAiSummaryOfShampoo,
+          //   link: response.alternativeSearchLink,
+          //   why: response.alternativeWhyRecommend
+          // }})}}
         />
     </div>
     </>
