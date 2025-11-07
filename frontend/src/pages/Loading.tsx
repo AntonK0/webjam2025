@@ -25,7 +25,7 @@ const Loading = () => {
   const { isLoading, error, data } = useQuery({
     queryKey: ["recommendations"],
     queryFn: () =>
-      fetch("http://127.0.0.1:8000/generate-shampoo-response", {
+      fetch("https://webjam2025-backend.onrender.com/generate-shampoo-response", {
         method: "POST",
         // headers: {
         //   "Content-Type": "multipart/form-data",
