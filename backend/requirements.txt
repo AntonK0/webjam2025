@@ -1,6 +1,7 @@
 fastapi==0.115.4
 uvicorn[standard]==0.32.0 # for the server
 python-multipart==0.0.12 # for file uploads
-google-genai==0.1.0 # for Google Generative AI API
+google-genai>=1.0.0 # for Google Generative AI API
 python-dotenv==1.0.1 # for loading environment variables
-
+pydantic==2.12.2 # for data validation and settings management
+Pillow>=10.0.0
