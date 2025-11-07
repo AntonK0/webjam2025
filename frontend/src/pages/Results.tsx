@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import TopPick from "../components/TopPick";
 import ProductCardMobile from "../components/SecondPick";
 import { RiSparklingFill, RiSparklingLine } from "@remixicon/react";
@@ -8,6 +8,8 @@ import AlternativePick from "../components/AlternativePick";
 const Results = () => {
   const response = useLocation().state;
   console.log(response);
+
+  let navigate = useNavigate();
 
   if (!response) {
     return (
