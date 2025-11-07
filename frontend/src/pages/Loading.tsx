@@ -35,10 +35,9 @@ const Loading = () => {
   });
 
   if (data !== undefined) {
-    // Clean the data if it's wrapped in markdown code blocks
+    // Gen-AI Code
     let cleanedData = data;
     if (typeof data === 'string') {
-      // Remove markdown code block syntax if present
       cleanedData = data.replace(/```json\s*/g, '').replace(/```\s*/g, '').trim();
     }
     
@@ -58,10 +57,6 @@ const Loading = () => {
       secondSearchLink: parsedData.second_search_link,
       alternativePickTitle: parsedData.alternative_pick_title,
       alternativePickType: parsedData.altnerative_pick_type,
-      alternativeAiSummaryOfShampoo:
-        parsedData.alternative_ai_summary_of_shampoo,
-      alternativeWhyRecommend: parsedData.alternative_why_recommend,
-      alternativeSearchLink: parsedData.alternative_search_link,
     };
 
     navigate("/results", {
