@@ -13,6 +13,10 @@ import {
   RiToothLine,
   RiHandSanitizerLine,
   RiReservedLine,
+  RiMenuLine,
+  RiLoader3Fill,
+  RiWindyFill,
+  RiLoader4Fill,
 } from "@remixicon/react";
 
 const AssessmentPage = () => {
@@ -204,7 +208,7 @@ const AssessmentPage = () => {
           <div className="flex justify-center flex-wrap mt-10">
             <ItemType
               item="Straight"
-              icon= {null}
+              icon= {<RiMenuLine />}
               onClick={() => {
                 setHairType("Straight");
                 setPage(2);
@@ -212,7 +216,7 @@ const AssessmentPage = () => {
             />
             <ItemType
               item="Curly"
-              icon= {null}
+              icon= {<RiLoader4Fill />}
               onClick={() => {
                 setHairType("Curly");
                 setPage(2);
@@ -221,7 +225,7 @@ const AssessmentPage = () => {
             />
             <ItemType
               item="Wavy"
-              icon= {null}
+              icon= {<RiWindyFill />}
               onClick={() => {
                 setHairType("Wavy");
                 setPage(2);
@@ -230,7 +234,7 @@ const AssessmentPage = () => {
             />
             <ItemType
               item="Coily"
-              icon= {null}
+              icon= {<RiLoader3Fill />}
               onClick={() => {
                 setHairType("Coily");
                 setPage(2);
