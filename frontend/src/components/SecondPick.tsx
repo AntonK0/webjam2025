@@ -1,3 +1,4 @@
+import { RiExpandDiagonalFill } from '@remixicon/react';
 import React from 'react';
 
 interface ProductCardMobileProps {
@@ -26,11 +27,7 @@ const ProductCardMobile: React.FC<ProductCardMobileProps> = ({
           className="absolute top-3 right-3 w-4 h-4 cursor-pointer transition-opacity hover:opacity-70 z-10"
           aria-label="Expand"
         >
-          <img 
-            alt="Expand" 
-            className="block w-full h-full" 
-            src={expandIcon} 
-          />
+          <RiExpandDiagonalFill className='w-4 h-4' color='black'/>
         </button>
       )}
 
