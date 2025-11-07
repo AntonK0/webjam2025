@@ -35,24 +35,33 @@ const Loading = () => {
   });
 
   if (data !== undefined) {
-    console.log(JSON.parse(data))
+    // Clean the data if it's wrapped in markdown code blocks
+    let cleanedData = data;
+    if (typeof data === 'string') {
+      // Remove markdown code block syntax if present
+      cleanedData = data.replace(/```json\s*/g, '').replace(/```\s*/g, '').trim();
+    }
+    
+    const parsedData = typeof cleanedData === 'string' ? JSON.parse(cleanedData) : cleanedData;
+    console.log(parsedData);
+    
     const response = {
-      topPickTitle: JSON.parse(data).top_pick_title,
-      topPickType: JSON.parse(data).top_pick_type,
-      topAiSummaryOfShampoo: JSON.parse(data).top_ai_summary_of_shampoo,
-      topWhyRecommend: JSON.parse(data).top_why_recommend,
-      topSearchLink: JSON.parse(data).top_search_link,
-      secondPickTitle: JSON.parse(data).second_pick_title,
-      secondPickType: JSON.parse(data).second_pick_type,
-      secondAiSummaryOfShampoo: JSON.parse(data).second_ai_summary_of_shampoo,
-      secondWhyRecommend: JSON.parse(data).second_why_recommend,
-      secondSearchLink: JSON.parse(data).second_search_link,
-      alternativePickTitle: JSON.parse(data).alternative_pick_title,
-      alternativePickType: JSON.parse(data).altnerative_pick_type,
+      topPickTitle: parsedData.top_pick_title,
+      topPickType: parsedData.top_pick_type,
+      topAiSummaryOfShampoo: parsedData.top_ai_summary_of_shampoo,
+      topWhyRecommend: parsedData.top_why_recommend,
+      topSearchLink: parsedData.top_search_link,
+      secondPickTitle: parsedData.second_pick_title,
+      secondPickType: parsedData.second_pick_type,
+      secondAiSummaryOfShampoo: parsedData.second_ai_summary_of_shampoo,
+      secondWhyRecommend: parsedData.second_why_recommend,
+      secondSearchLink: parsedData.second_search_link,
+      alternativePickTitle: parsedData.alternative_pick_title,
+      alternativePickType: parsedData.altnerative_pick_type,
       alternativeAiSummaryOfShampoo:
-        JSON.parse(data).alternative_ai_summary_of_shampoo,
-      alternativeWhyRecommend: JSON.parse(data).alternative_why_recommend,
-      alternativeSearchLink: JSON.parse(data).alternative_search_link,
+        parsedData.alternative_ai_summary_of_shampoo,
+      alternativeWhyRecommend: parsedData.alternative_why_recommend,
+      alternativeSearchLink: parsedData.alternative_search_link,
     };
 
     navigate("/results", {

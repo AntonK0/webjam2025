@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import LogoutHeader from "../components/LogoutHeader.tsx";
 import { useLocation, useNavigate } from 'react-router-dom';
 import UploadBoxExample from '../components/UploadBoxExample.tsx';
@@ -10,12 +10,14 @@ function UploadImage() {
 
   let navigate = useNavigate();
 
-  if (uploadedFiles.length > 0) {
-    // Process uploaded images
-    // console.log('Submitting files:', uploadedFiles);
-    userValues.files = uploadedFiles
-    navigate('/loading', {state: userValues})
-  };
+  useEffect(() => {
+    if (uploadedFiles.length > 0) {
+      // Process uploaded images
+      // console.log('Submitting files:', uploadedFiles);
+      userValues.files = uploadedFiles
+      navigate('/loading', {state: userValues})
+    }
+  }, [uploadedFiles]);
 
   return (
     <>
