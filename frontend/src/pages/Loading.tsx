@@ -33,38 +33,32 @@ const Loading = () => {
       }).then((res) => res.json()),
   });
 
-<<<<<<< HEAD
-    if (data !== undefined) {
-      console.log(JSON.parse(data))
-      const response = {
-        topPickTitle: JSON.parse(data).top_pick_title,
-        topPickType: JSON.parse(data).top_pick_type,
-        topAiSummaryOfShampoo: JSON.parse(data).top_ai_summary_of_shampoo,
-        topWhyRecommend: JSON.parse(data).top_why_recommend,
-        topSearchLink: JSON.parse(data).top_search_link,
-        secondPickTitle: JSON.parse(data).second_pick_title,
-        secondPickType: JSON.parse(data).second_pick_type,
-        secondAiSummaryOfShampoo: JSON.parse(data).second_ai_summary_of_shampoo,
-        secondWhyRecommend: JSON.parse(data).second_why_recommend,
-        secondSearchLink: JSON.parse(data).second_search_link,
-        alternativePickTitle: JSON.parse(data).alternative_pick_title,
-        alternativePickType: JSON.parse(data).altnerative_pick_type,
-        alternativeAiSummaryOfShampoo:
-          JSON.parse(data).alternative_ai_summary_of_shampoo,
-        alternativeWhyRecommend: JSON.parse(data).alternative_why_recommend,
-        alternativeSearchLink: JSON.parse(data).alternative_search_link,
-      };
+  if (data !== undefined) {
+    console.log(JSON.parse(data))
+    const response = {
+      topPickTitle: JSON.parse(data).top_pick_title,
+      topPickType: JSON.parse(data).top_pick_type,
+      topAiSummaryOfShampoo: JSON.parse(data).top_ai_summary_of_shampoo,
+      topWhyRecommend: JSON.parse(data).top_why_recommend,
+      topSearchLink: JSON.parse(data).top_search_link,
+      secondPickTitle: JSON.parse(data).second_pick_title,
+      secondPickType: JSON.parse(data).second_pick_type,
+      secondAiSummaryOfShampoo: JSON.parse(data).second_ai_summary_of_shampoo,
+      secondWhyRecommend: JSON.parse(data).second_why_recommend,
+      secondSearchLink: JSON.parse(data).second_search_link,
+      alternativePickTitle: JSON.parse(data).alternative_pick_title,
+      alternativePickType: JSON.parse(data).altnerative_pick_type,
+      alternativeAiSummaryOfShampoo:
+        JSON.parse(data).alternative_ai_summary_of_shampoo,
+      alternativeWhyRecommend: JSON.parse(data).alternative_why_recommend,
+      alternativeSearchLink: JSON.parse(data).alternative_search_link,
+    };
 
-      navigate("/results", {
-        state: response,
-      });
-    }
+    navigate("/results", {
+      state: response,
+    });
+  }
   
-=======
-  
-
-  console.log(userValues, formData, data);
->>>>>>> c4b4c5453d1caa071fe23670276c77b6cfebe2bc
   return <div>Loading</div>;
 };
 
